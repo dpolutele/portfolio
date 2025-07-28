@@ -47,35 +47,49 @@ export default function Parcours() {
                       "Licence Méthodes informatiques appliquées à la gestion des entreprises",
                     status: "En cours",
                     mention: null,
+                    logo: "/licence-logo.png",
                   },
                   {
                     year: "2023",
                     title: "Brevet de technicien supérieur (BTS SIO - SISR)",
                     status: "Obtenu",
                     mention: "Mention AB",
+                    logo: "/bts-logo.png",
                   },
                   {
                     year: "2021",
                     title: "Baccalauréat Technologique (STMG option SIG)",
                     status: "Obtenu",
                     mention: "Mention AB",
+                    logo: "/bac-logo.png",
                   },
                   {
                     year: "2018",
                     title: "Diplôme national du brevet",
                     status: "Obtenu",
                     mention: "Mention AB",
+                    logo: "/dnb-logo.png",
                   },
                 ].map((diploma, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-4 p-4 rounded-lg border border-muted bg-accent/5"
+                    className="flex items-center gap-4 sm:gap-6 p-4 rounded-lg border border-muted bg-accent/5"
                   >
-                    <Badge variant="secondary" className="shrink-0">
-                      {diploma.year}
-                    </Badge>
+                    <div className="flex flex-col items-center space-y-1">
+                      <Badge variant="secondary" className="text-xs">
+                        {diploma.year}
+                      </Badge>
+                      <img
+                        src={`${import.meta.env.BASE_URL}${diploma.logo.replace(
+                          /^\//,
+                          ""
+                        )}`}
+                        alt={`${diploma.title} logo`}
+                        className="h-10 w-10 object-contain"
+                      />
+                    </div>
                     <div className="flex-1">
-                      <h3 className="font-semibold text-foreground">
+                      <h3 className="font-semibold text-foreground mb-1">
                         {diploma.title ===
                         "Brevet de technicien supérieur (BTS SIO - SISR)" ? (
                           <a
@@ -90,10 +104,12 @@ export default function Parcours() {
                           diploma.title
                         )}
                       </h3>
-                      <div className="flex items-center gap-2 mt-1">
+                      <div className="flex items-center gap-2 flex-wrap">
                         <Badge
                           variant={
-                            diploma.status === "En cours" ? "default" : "outline"
+                            diploma.status === "En cours"
+                              ? "default"
+                              : "outline"
                           }
                         >
                           {diploma.status}
@@ -147,6 +163,7 @@ export default function Parcours() {
                     company: "Lycée Polyvalent Jules Garnier",
                     description:
                       "Administration, supervision et maintenance du parc informatique de l'établissement, déploiements d'images, scripting (serveur FOG), réaffectation de port sur VLAN (Cisco Catalyst), ticketing (GLPI).",
+                    logo: "/jules-garnier.png",
                   },
                   {
                     year: "2023",
@@ -155,6 +172,7 @@ export default function Parcours() {
                     company: "Centre Hospitalier Territorial Gaston-Bourret",
                     description:
                       "Migration de serveurs, gestion de postes clients lourds/légers, résolution de pannes réseaux, mise à jour de switches (Alcatel-Lucent), déploiement de logiciels applicatifs.",
+                    logo: "/ch-gaston-bourret.png",
                   },
                   {
                     year: "2022",
@@ -164,22 +182,33 @@ export default function Parcours() {
                       "Direction du numérique et de la modernisation de la Nouvelle-Calédonie",
                     description:
                       "Interventions sur site pour dépannage, remplacement, et déploiement de postes et matériels informatiques. Utilisation d’outils de gestion de parc et ticketing (Jira, EazyVista).",
+                    logo: "/dnum.png",
                   },
                 ].map((experience, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-4 p-4 rounded-lg border border-muted bg-accent/5"
+                    className="flex items-center gap-4 sm:gap-6 p-4 rounded-lg border border-muted bg-accent/5"
                   >
-                    <Badge variant="secondary" className="shrink-0">
-                      {experience.year}
-                    </Badge>
+                    <div className="flex flex-col items-center space-y-1">
+                      <Badge variant="secondary" className="text-xs">
+                        {experience.year}
+                      </Badge>
+                      <img
+                        src={`${import.meta.env.BASE_URL}${experience.logo.replace(
+                          /^\//,
+                          ""
+                        )}`}
+                        alt={`${experience.company} logo`}
+                        className="h-10 w-10 object-contain"
+                      />
+                    </div>
                     <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <h3 className="font-semibold text-foreground">
-                          {experience.title}
-                        </h3>
-                        <Badge variant="outline">{experience.type}</Badge>
-                      </div>
+                      <h3 className="font-semibold text-foreground mb-1">
+                        {experience.title}{" "}
+                        <Badge variant="outline" className="ml-2">
+                          {experience.type}
+                        </Badge>
+                      </h3>
                       <p className="text-muted-foreground text-sm">
                         {experience.company}
                       </p>

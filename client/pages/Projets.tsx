@@ -70,14 +70,14 @@ const projects = [
     date: "Juillet 2022",
     location: "Lycée Dick Ukeiwe",
     description:
-      "Dans le cadre de ma formation en BTS SIO, nous avons organisé un jeu de simulation Simuland pour les terminales STMG du Lycée Dick Ukeiwe. " +
+      "Dans le cadre de ma formation en BTS SIO, nous avons organisé un jeu de simulation nommé Simuland pour les terminales STMG du Lycée Dick Ukeiwe. " +
       "Préparation des salles info et création des comptes utilisateurs. " +
       "Gestion des équipes et des parties. " +
       "Animation du jeu et vérification des équipements. " +
       "Gestion administrative sur Simuland. " +
       "Vérification des salles et connexion réseau. " +
       "Tests d’accès au site et sessions.",
-    type: "Projet éducatif",
+    type: "Animation pédagogique",
     technologies: ["Gestion de projet", "Travail en équipe", "Simulation"],
     url: "https://weblgn.ac-noumea.nc/IMG/pdf/jee-2022_1_.pdf",
     image: "/simuland.jpg",
@@ -88,12 +88,38 @@ const projects = [
     location: "Lycée Dick Ukeiwe",
     description:
       "Dans le cadre de ma formation en BTS SIO, nous avons organisé une journée pour faire découvrir le BTS aux terminales SIG du Lycée Blaise Pascal et Dick Ukeiwe via un Capture The Flag. " +
-      "Création complète du CTF, hébergement web, défis et gestion sur le site. " +
+      "Création complète du CTF, hébergement web, création des défis et gestion sur le site. " +
       "Organisation des équipes avec comptes, accueil, connexion et déroulement du jeu. " +
-      "Le gagnant est reparti avec un commutateur Cisco Catalyst 2960.",
+      "Le gagnant est reparti avec un commutateur Cisco Catalyst.",
     type: "Animation pédagogique",
     technologies: ["Cybersécurité", "CTF", "Formation", "Pédagogie"],
     image: "/ctf_terminales_sig.jpg",
+  },
+  {
+    title: "Search IT : Application Mastodonte CLI",
+    date: "2025",
+    location: "UNC",
+    description: (
+      <>
+        <p>
+          Projet universitaire réalisé en groupe dans le cadre de la Licence : développement d’un mini-réseau social similaire à Mastodon.
+        </p>
+        <ul className="list-disc list-inside mb-4">
+          <li>Création d'une interface utilisateur avec Vaadin</li>
+          <li>Architecture basée sur Spring Boot et Maven</li>
+          <li>Authentification, publication, recherche de posts</li>
+          <li>Déploiement local via CLI et navigateur</li>
+          <li>Travail collaboratif en méthode projet</li>
+        </ul>
+        <p>
+          Ce projet a été particulièrement motivant et formateur, combinant à la fois développement web moderne, logique métier et coordination d'équipe.
+        </p>
+      </>
+    ),
+    type: "Projet universitaire",
+    technologies: ["Vaadin", "Spring Boot", "Maven", "Java", "Web", "Travail en groupe"],
+    image: "/projet10_mastodonte.jpg",
+    url: "https://github.com/ldesfontaine/projet10",
   },
 ];
 

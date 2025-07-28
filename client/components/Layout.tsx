@@ -16,7 +16,7 @@ export default function Layout({ children }: LayoutProps) {
       <footer className="md:ml-64 border-t border-border bg-card">
         <div className="max-w-4xl mx-auto p-6 text-center">
           <p className="text-sm text-muted-foreground">
-            © 2025 POLUTELE Dylan - Portfolio professionnel
+            © 2025 Dylan Polutele.
           </p>
         </div>
       </footer>

@@ -16,116 +16,131 @@ function TypingEffect() {
     "Je suis étudiant en informatique",
   ];
 
-  const dynamicWords = [
-    "Technicien",
-    "Ingénieur",
-    "Administrateur Systèmes",
-    "Administrateur Réseaux",
-  ];
+  const dynamicWords = ["systèmes", "réseaux"];
+  const dynamicPrefix = "Futur technicien ";
 
-  const dynamicPrefix = "Futur ";
+  // Définition des phases du cycle d'animation
+  const [phase, setPhase] = useState<
+    | "typingFixed"
+    | "pauseFixed"
+    | "deletingFixed"
+    | "typingPrefixWord"
+    | "pauseDynamic"
+    | "deletingWord"
+    | "deletingPrefix"
+  >("typingFixed");
+
+  const [fixedIndex, setFixedIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [dynamicWordIndex, setDynamicWordIndex] = useState(0);
 
   const [displayedText, setDisplayedText] = useState("");
-  const [charIndex, setCharIndex] = useState(0);
-  const [wordIndex, setWordIndex] = useState(0);
-  const [phase, setPhase] = useState<"typing" | "pause" | "deleting">("typing");
-  const [isDynamic, setIsDynamic] = useState(false);
-  const [subPhase, setSubPhase] = useState<"prefix" | "word">("prefix");
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
 
-    const isFixed = wordIndex < fixedTexts.length;
-    const totalWords = fixedTexts.length + dynamicWords.length;
-    const currentDynamicWord = dynamicWords[wordIndex - fixedTexts.length];
-
-    if (isFixed) {
-      const currentText = fixedTexts[wordIndex];
-      if (phase === "typing") {
-        if (charIndex <= currentText.length) {
+    switch (phase) {
+      case "typingFixed": {
+        const fullText = fixedTexts[fixedIndex];
+        if (charIndex <= fullText.length) {
           timeout = setTimeout(() => {
-            setDisplayedText(currentText.slice(0, charIndex));
+            setDisplayedText(fullText.slice(0, charIndex));
             setCharIndex(charIndex + 1);
           }, 100);
         } else {
-          timeout = setTimeout(() => setPhase("deleting"), 1200);
+          timeout = setTimeout(() => setPhase("pauseFixed"), 1200);
         }
-      } else if (phase === "deleting") {
+        break;
+      }
+      case "pauseFixed": {
+        timeout = setTimeout(() => setPhase("deletingFixed"), 800);
+        break;
+      }
+      case "deletingFixed": {
         if (charIndex >= 0) {
           timeout = setTimeout(() => {
-            setDisplayedText(currentText.slice(0, charIndex));
+            setDisplayedText(fixedTexts[fixedIndex].slice(0, charIndex));
             setCharIndex(charIndex - 1);
           }, 50);
         } else {
-          setWordIndex(wordIndex + 1);
-          setCharIndex(0);
-          setPhase("typing");
-        }
-      }
-    } else {
-      setIsDynamic(true);
-      if (phase === "typing") {
-        if (subPhase === "prefix") {
-          if (charIndex <= dynamicPrefix.length) {
-            timeout = setTimeout(() => {
-              setDisplayedText(dynamicPrefix.slice(0, charIndex));
-              setCharIndex(charIndex + 1);
-            }, 150); // ralentit ici (au lieu de 100)
-          } else {
-            setSubPhase("word");
+          if (fixedIndex < fixedTexts.length - 1) {
+            setFixedIndex(fixedIndex + 1);
+            setPhase("typingFixed");
             setCharIndex(0);
-          }
-        } else if (subPhase === "word") {
-          if (charIndex <= currentDynamicWord.length) {
-            timeout = setTimeout(() => {
-              setDisplayedText(dynamicPrefix + currentDynamicWord.slice(0, charIndex));
-              setCharIndex(charIndex + 1);
-            }, 150); // ralentit ici aussi
           } else {
-            timeout = setTimeout(() => setPhase("deleting"), 1200);
+            // Passage à la partie dynamique après les fixes
+            setPhase("typingPrefixWord");
+            setCharIndex(0);
+            setDynamicWordIndex(0);
+            setDisplayedText("");
           }
         }
-      } else if (phase === "deleting") {
-        const fullWord = dynamicPrefix + currentDynamicWord;
-        if (charIndex > dynamicPrefix.length) {
+        break;
+      }
+      case "typingPrefixWord": {
+        // Tape "Futur technicien " + mot dynamique
+        const fullDynamicText = dynamicPrefix + dynamicWords[dynamicWordIndex];
+        if (charIndex <= fullDynamicText.length) {
           timeout = setTimeout(() => {
-            setDisplayedText(fullWord.slice(0, charIndex - 1));
-            setCharIndex(charIndex - 1);
-          }, 80); // ralentit ici (au lieu de 50)
-        } else if (wordIndex - fixedTexts.length === dynamicWords.length - 1) {
-          // Supprimer "Futur " uniquement à la toute fin
+            setDisplayedText(fullDynamicText.slice(0, charIndex));
+            setCharIndex(charIndex + 1);
+          }, 100);
+        } else {
+          timeout = setTimeout(() => setPhase("pauseDynamic"), 1200);
+        }
+        break;
+      }
+      case "pauseDynamic": {
+        timeout = setTimeout(() => setPhase("deletingWord"), 800);
+        break;
+      }
+      case "deletingWord": {
+        // Supprime seulement le mot dynamique (après le préfixe)
+        const fullDynamicText = dynamicPrefix + dynamicWords[dynamicWordIndex];
+        const prefixLen = dynamicPrefix.length;
+        const currentLen = displayedText.length;
+
+        if (currentLen > prefixLen) {
+          timeout = setTimeout(() => {
+            setDisplayedText(fullDynamicText.slice(0, currentLen - 1));
+          }, 50);
+        } else {
+          if (dynamicWordIndex < dynamicWords.length - 1) {
+            // Passe au mot dynamique suivant
+            setDynamicWordIndex(dynamicWordIndex + 1);
+            setCharIndex(dynamicPrefix.length);
+            setPhase("typingPrefixWord");
+          } else {
+            // Après dernier mot dynamique, supprime le préfixe entier
+            setPhase("deletingPrefix");
+            setCharIndex(dynamicPrefix.length);
+          }
+        }
+        break;
+      }
+      case "deletingPrefix": {
+        // Supprime le préfixe "Futur technicien "
+        if (charIndex > 0) {
           timeout = setTimeout(() => {
             setDisplayedText(dynamicPrefix.slice(0, charIndex - 1));
             setCharIndex(charIndex - 1);
-          }, 80); // ralentit ici aussi
-
-          if (charIndex === 1) {
-            setTimeout(() => {
-              setDisplayedText("");
-              setCharIndex(0);
-              setWordIndex(0);
-              setPhase("typing");
-              setSubPhase("prefix");
-              setIsDynamic(false);
-            }, 50);
-          }
+          }, 50);
         } else {
-          // Passage au mot suivant
-          setPhase("typing");
-          setSubPhase("word");
-          setWordIndex(wordIndex + 1);
-          setCharIndex(dynamicPrefix.length);
+          // Reset boucle complète
+          setFixedIndex(0);
+          setPhase("typingFixed");
+          setCharIndex(0);
+          setDynamicWordIndex(0);
         }
+        break;
       }
     }
 
     return () => clearTimeout(timeout);
-  }, [charIndex, phase, subPhase, wordIndex]);
+  }, [phase, charIndex, fixedIndex, dynamicWordIndex, displayedText]);
 
   return (
-    <span
-      className="font-bold text-4xl md:text-6xl border-r-2 border-foreground animate-blink-caret whitespace-normal md:whitespace-nowrap"
-    >
+    <span className="font-bold text-4xl md:text-6xl border-r-2 border-foreground animate-blink-caret whitespace-normal md:whitespace-nowrap">
       {displayedText}
     </span>
   );
@@ -179,14 +194,12 @@ export default function Home() {
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent transition-colors"
                 >
                   <Mail className="h-4 w-4 text-primary" />
-                  <span className="text-sm">
-                    dylangiovannipolutele@gmail.com
-                  </span>
+                  <span className="text-sm">dylangiovannipolutele@gmail.com</span>
                 </a>
 
                 <div className="flex items-center gap-3 p-3 rounded-lg">
                   <Phone className="h-4 w-4 text-primary" />
-                  <span className="text-sm">+687 967501</span>
+                  <span className="text-sm">+687 96.75.01</span>
                 </div>
 
                 <a
