@@ -15,57 +15,51 @@ import NotFound from "./pages/NotFound";
 import { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 
-// ✅ Composant ThemeSwitcher avec menu déroulant
+// ✅ Nouveau ThemeSwitcher avec toggle style iPhone
 const ThemeSwitcher = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const themes = [
-    { name: 'default', label: 'Classic' },
-    { name: 'dark', label: 'Dark' },
-  ];
+  const [theme, setTheme] = useState("default");
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('portfolio-theme') || 'default';
-    changeTheme(savedTheme, false);
+    const savedTheme = localStorage.getItem("portfolio-theme") || "default";
+    applyTheme(savedTheme, false);
   }, []);
 
-  const changeTheme = (themeName: string, save = true) => {
-    // Supprime toutes les classes de thème possibles (sauf default)
-    document.documentElement.classList.remove('dark', 'theme-nature', 'theme-sunset');
-    // Ne garder que 'dark' si sélectionné
-    if (themeName === 'dark') {
-      document.documentElement.classList.add('dark');
+  const applyTheme = (themeName: string, save = true) => {
+    document.documentElement.classList.remove("dark", "theme-nature", "theme-sunset");
+
+    if (themeName === "dark") {
+      document.documentElement.classList.add("dark");
     }
-    // Pas de classe ajoutée pour 'default' (classique)
+
     if (save) {
-      localStorage.setItem('portfolio-theme', themeName);
+      localStorage.setItem("portfolio-theme", themeName);
     }
-    setIsOpen(false);
+
+    setTheme(themeName);
+  };
+
+  const toggleTheme = () => {
+    const newTheme = theme === "dark" ? "default" : "dark";
+    applyTheme(newTheme);
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className="fixed bottom-4 right-4 z-50 flex items-center gap-3">
+      <span className="text-sm">{theme === "dark" ? "🌙" : "☀️"}</span>
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="btn m-1 flex items-center gap-2"
+        onClick={toggleTheme}
+        role="switch"
+        aria-checked={theme === "dark"}
+        className={`relative inline-flex h-6 w-12 items-center rounded-full transition-colors ${
+          theme === "dark" ? "bg-blue-600" : "bg-gray-300"
+        }`}
       >
-        🎨 Thème
+        <span
+          className={`inline-block h-5 w-5 transform rounded-full bg-white transition-transform ${
+            theme === "dark" ? "translate-x-6" : "translate-x-1"
+          }`}
+        />
       </button>
-
-      {isOpen && (
-        <ul className="mt-2 menu p-2 shadow bg-background border border-border rounded-box w-52">
-          {themes.map((theme) => (
-            <li key={theme.name}>
-              <a
-                onClick={() => changeTheme(theme.name)}
-                className="hover:bg-secondary hover:text-secondary-foreground cursor-pointer"
-              >
-                {theme.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
     </div>
   );
 };

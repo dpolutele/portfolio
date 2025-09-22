@@ -42,23 +42,23 @@ export default function Parcours() {
               <div className="space-y-4">
                 {[
                   {
-                    year: "2024",
+                    year: "2024-25",
                     title:
-                      "Licence Méthodes informatiques appliquées à la gestion des entreprises",
+                      "Licence Méthodes Informatiques Appliquées à la Gestion des Entreprises",
                     status: "En cours",
                     mention: null,
                     logo: "/licence-logo.png",
                   },
                   {
                     year: "2023",
-                    title: "Brevet de technicien supérieur (BTS SIO - SISR)",
+                    title: "Brevet de Technicien Supérieur - Services Informatiques aux Organisations (option SISR)",
                     status: "Obtenu",
                     mention: "Mention AB",
                     logo: "/bts-logo.png",
                   },
                   {
                     year: "2021",
-                    title: "Baccalauréat Technologique (STMG option SIG)",
+                    title: "Baccalauréat Sciences et Technologies du Management et de la Gestion (option SIG)",
                     status: "Obtenu",
                     mention: "Mention AB",
                     logo: "/bac-logo.png",
@@ -91,7 +91,7 @@ export default function Parcours() {
                     <div className="flex-1">
                       <h3 className="font-semibold text-foreground mb-1">
                         {diploma.title ===
-                        "Brevet de technicien supérieur (BTS SIO - SISR)" ? (
+                        "Brevet de technicien supérieur - Services Informatiques aux Organisations" ? (
                           <a
                             href="https://btsinfo.nc/"
                             target="_blank"
@@ -168,7 +168,7 @@ export default function Parcours() {
                   {
                     year: "2023",
                     type: "Stage",
-                    title: "Ingénieur informatique N2-N3",
+                    title: "Technicien informatique N2-N3",
                     company: "Centre Hospitalier Territorial Gaston-Bourret",
                     description:
                       "Migration de serveurs, gestion de postes clients lourds/légers, résolution de pannes réseaux, mise à jour de switches (Alcatel-Lucent), déploiement de logiciels applicatifs.",

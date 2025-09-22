@@ -13,11 +13,11 @@ import { useState, useEffect } from "react";
 function TypingEffect() {
   const fixedTexts = [
     "Bienvenue sur mon Portfolio",
-    "Je suis étudiant en informatique",
+    "Je suis POLUTELE Dylan",
   ];
 
   const dynamicWords = ["systèmes", "réseaux"];
-  const dynamicPrefix = "Futur technicien ";
+  const dynamicPrefix = "Technicien ";
 
   // Définition des phases du cycle d'animation
   const [phase, setPhase] = useState<
@@ -226,9 +226,8 @@ export default function Home() {
             </CardHeader>
             <CardContent>
               <p className="text-foreground leading-relaxed mb-4">
-                En bref, sortant d'une formation au sein du BTS SIO, je suis
-                actuellement en Licence informatique MIAGE à l'Université de la
-                Nouvelle-Calédonie.
+                En bref, sortant d'une formation en licence MIAGE à l'UNC et titulaire d'un BTS SIO, je suis
+                actuellement technicien informatique contractuel au Lycée Polyvalent Jules Garnier.
               </p>
               <Link to="/qui-suis-je">
                 <Button variant="outline" className="group">
