@@ -7,51 +7,54 @@
 
 @layer base {
   /**
-   * Modern professional blog portfolio color scheme
-   * Using deep navy blues with vibrant accent colors
+   * Modern professional blog/portfolio color scheme
+   * Using soft light theme and dark theme
    */
+
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 26% 14%;
+    /* Light theme */
+    --background: 0 0% 98%;        /* Slightly off-white */
+    --foreground: 220 20% 12%;     /* Soft dark text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 26% 14%;
+    --card: 0 0% 100%;              /* White cards */
+    --card-foreground: 220 20% 12%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 26% 14%;
+    --popover: 0 0% 99%;
+    --popover-foreground: 220 20% 12%;
 
-    --primary: 220 91% 42%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 220 88% 50%;         /* Professional blue */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 220 26% 14%;
+    --secondary: 220 12% 94%;       /* Subtle secondary areas */
+    --secondary-foreground: 220 20% 12%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 220 12% 94%;
+    --muted-foreground: 220 8% 45%;
 
-    --accent: 142 76% 36%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 142 70% 40%;          /* Soft green accent */
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 220 91% 42%;
+    --border: 220 12% 88%;
+    --input: 220 12% 88%;
+    --ring: 220 88% 50%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 220 26% 14%;
-    --sidebar-primary: 220 91% 42%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 220 14% 96%;
-    --sidebar-accent-foreground: 220 26% 14%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 220 91% 42%;
+    --sidebar-background: 0 0% 97%;
+    --sidebar-foreground: 220 20% 12%;
+    --sidebar-primary: 220 88% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 12% 94%;
+    --sidebar-accent-foreground: 220 20% 12%;
+    --sidebar-border: 220 12% 88%;
+    --sidebar-ring: 220 88% 50%;
   }
 
   .dark {
+    /* Dark theme remains unchanged */
     --background: 220 26% 14%;
     --foreground: 0 0% 95%;
 

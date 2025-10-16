@@ -21,34 +21,36 @@ const projects = [
           Dans le cadre de l’épreuve finale E5 du BTS SIO spécialité SISR, j’ai conçu et déployé une infrastructure réseau complète pour une entreprise fictive "DEVLINE".
         </p>
 
-        <p><strong>Mission 1 : Mise en place du LAN</strong></p>
-        <ul className="list-disc list-inside mb-4">
-          <li>Schéma réseau LAN</li>
-          <li>Installation d’un Active Directory (VBox)</li>
-          <li>Configuration AD DS, DHCP (plage IP définie), DNS</li>
-          <li>Création et déploiement des postes clients sur le domaine DEVLINE</li>
-          <li>Gestion des groupes, comptes utilisateurs et GPO (stratégies de sécurité, redirections)</li>
-          <li>Installation serveur Zabbix avec déploiement agents clients</li>
-          <li>Installation serveur GLPI pour gestion du parc</li>
-        </ul>
+        <div className="space-y-6">
+  <p><strong>Mission 1 : Mise en place du LAN</strong></p>
+  <ul className="list-disc list-inside">
+    <li>Schéma réseau LAN</li>
+    <li>Installation d’un Active Directory (VBox)</li>
+    <li>Configuration AD DS, DHCP (plage IP définie), DNS</li>
+    <li>Création et déploiement des postes clients sur le domaine DEVLINE</li>
+    <li>Gestion des groupes, comptes utilisateurs et GPO (stratégies de sécurité, redirections)</li>
+    <li>Installation serveur Zabbix avec déploiement agents clients</li>
+    <li>Installation serveur GLPI pour gestion du parc</li>
+  </ul>
 
-        <p><strong>Mission 2 : Mise en place du WAN</strong></p>
-        <ul className="list-disc list-inside mb-4">
-          <li>Schéma réseau WAN</li>
-          <li>Installation et configuration du routeur/pare-feu pfSense</li>
-          <li>Mise en place de règles de filtrage et routage inter-VLAN</li>
-        </ul>
+  <p><strong>Mission 2 : Mise en place du WAN</strong></p>
+  <ul className="list-disc list-inside">
+    <li>Schéma réseau WAN</li>
+    <li>Installation et configuration du routeur/pare-feu pfSense</li>
+    <li>Mise en place de règles de filtrage et routage inter-VLAN</li>
+  </ul>
 
-        <p><strong>Mission 3 : Mise en place de la DMZ</strong></p>
-        <ul className="list-disc list-inside">
-          <li>Installation et configuration d’un serveur web</li>
-        </ul>
+  <p><strong>Mission 3 : Mise en place de la DMZ</strong></p>
+  <ul className="list-disc list-inside">
+    <li>Installation et configuration d’un serveur web</li>
+  </ul>
 
-        <p className="mt-4">
-          Travail sur Cisco 2960 :<br />
-          - Création VLAN, trunks, EtherChannel, Spanning Tree<br />
-          - Sécurisation des switches : interface management, SSH, affectation ports VLAN
-        </p>
+  <p><strong>Travail sur Cisco Catalyst 2960</strong></p>
+  <ul className="list-disc list-inside">
+    <li>Création VLAN, trunks, EtherChannel, Spanning Tree</li>
+    <li>Sécurisation des switches : interface management, SSH, affectation ports VLAN</li>
+  </ul>
+</div>
       </>
     ),
     type: "Projet final",
