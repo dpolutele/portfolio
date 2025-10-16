@@ -107,7 +107,7 @@ export default function QuiSuisJe() {
 
               {/* Paragraphe Licence MIAGE */}
               <p className="text-foreground leading-relaxed">
-                Actuellement en Licence Informatique{" "}
+                Fraîchement diplômé d'une licence informatique{" "}
                 <strong>
                   MIAGE (Méthodes Informatiques Appliquées à la Gestion des Entreprises)
                 </strong>, formation bac+3 axée sur les langages de programmation et les systèmes d'information. J'ai changé de spécialité pour élargir mes compétences et être polyvalent, car l'informaticien de demain doit savoir naviguer entre plusieurs domaines. Grâce à mon parcours STMG, j'ai acquis de solides bases en économie, management et droit, que j'ai pu consolider avec cette licence.
@@ -149,15 +149,15 @@ export default function QuiSuisJe() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Target className="h-5 w-5 text-primary" />
-                Ce que j'envisage
+                Ce que j'envisage pour la suite 
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-foreground leading-relaxed">
-                Après l'obtention de ma licence, mon objectif est d'intégrer le monde professionnel afin de m’épanouir dans une organisation ou une entreprise. Je souhaite mettre en œuvre les compétences que j’ai développées tout au long de mon parcours, aussi bien techniques que relationnelles.
+              Actuellement technicien informatique contractuel au sein du lycée polyvalent Jules Garnier, mon objectif est d’enrichir mon expérience professionnelle en mettant en pratique les compétences techniques et relationnelles que j’ai acquises tout au long de mon parcours.
               </p>
               <p className="text-foreground leading-relaxed mt-4">
-                J’aimerais particulièrement évoluer dans un environnement stimulant, en travaillant en mode projet, en collaborant avec des équipes et en échangeant avec les différents acteurs d’une entreprise. Je m’oriente vers une spécialisation dans l’administration des systèmes et réseaux, avec une approche polyvalente qui me permet de comprendre l’informatique dans son ensemble.
+              Je souhaite évoluer dans des environnements stimulants, travailler en mode projet, collaborer avec différents acteurs d’une entreprise ou organisation. Je m’oriente progressivement vers une spécialisation dans l’administration des systèmes et réseaux, tout en conservant une approche polyvalente qui me permet d’appréhender l’informatique dans sa globalité.
               </p>
               <p className="text-foreground leading-relaxed mt-4 italic">
                 Convaincu que l’apprentissage est un chemin sans fin, je considère chaque nouvelle expérience comme une occasion de progresser.

@@ -13,11 +13,11 @@ import { useState, useEffect } from "react";
 function TypingEffect() {
   const fixedTexts = [
     "Bienvenue sur mon Portfolio",
-    "Je suis POLUTELE Dylan",
+    "Diplômé bac +3 en informatique",
   ];
 
   const dynamicWords = ["systèmes", "réseaux"];
-  const dynamicPrefix = "Technicien ";
+  const dynamicPrefix = "Spécialisé dans les ";
 
   // Définition des phases du cycle d'animation
   const [phase, setPhase] = useState<

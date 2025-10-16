@@ -42,11 +42,11 @@ export default function Parcours() {
               <div className="space-y-4">
                 {[
                   {
-                    year: "2024-25",
+                    year: "2025",
                     title:
                       "Licence Méthodes Informatiques Appliquées à la Gestion des Entreprises",
-                    status: "En cours",
-                    mention: null,
+                    status: "Obtenu",
+                    mention: "Mention AB",
                     logo: "/licence-logo.png",
                   },
                   {
@@ -158,11 +158,20 @@ export default function Parcours() {
                 {[
                   {
                     year: "2025",
+                    type: "CDD",
+                    title: "Technicien informatique N1-N2",
+                    company: "Lycée Polyvalent Jules Garnier",
+                    description:
+                      "Administration, supervision et maintenance du parc informatique de l'établissement, déploiements d'images, scripting (serveur FOG), gestion de VLAN Cisco Catalyst 3560, ticketing (GLPI).",
+                    logo: "/jules-garnier.png",
+                  },
+                  {
+                    year: "2025",
                     type: "Stage",
                     title: "Technicien informatique N1-N2",
                     company: "Lycée Polyvalent Jules Garnier",
                     description:
-                      "Administration, supervision et maintenance du parc informatique de l'établissement, déploiements d'images, scripting (serveur FOG), réaffectation de port sur VLAN (Cisco Catalyst), ticketing (GLPI).",
+                      "Support utilisateur, maintenance informatique, rédaction de documentations et procédures techniques, déploiement d'images systèmes et intégration des postes au domaine de l'établissement, gestion de VLAN Cisco Catalyst 3560.",
                     logo: "/jules-garnier.png",
                   },
                   {
@@ -171,13 +180,13 @@ export default function Parcours() {
                     title: "Technicien informatique N2-N3",
                     company: "Centre Hospitalier Territorial Gaston-Bourret",
                     description:
-                      "Migration de serveurs, gestion de postes clients lourds/légers, résolution de pannes réseaux, mise à jour de switches (Alcatel-Lucent), déploiement de logiciels applicatifs.",
+                      "Migration de serveurs, résolution de pannes réseaux, mise à jour de switches (Alcatel-Lucent), déploiement de logiciels applicatifs.",
                     logo: "/ch-gaston-bourret.png",
                   },
                   {
                     year: "2022",
                     type: "Stage",
-                    title: "Technicien informatique N1-N2",
+                    title: "Technicien informatique N1",
                     company:
                       "Direction du numérique et de la modernisation de la Nouvelle-Calédonie",
                     description:
